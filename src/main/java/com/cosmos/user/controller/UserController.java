@@ -97,9 +97,9 @@ public class UserController {
     }
 
     @GetMapping(value = "/previous-history", produces = "application/json")
-    public UserHistoryDto getUserPreviousHistory(@RequestParam String device_id,
-    											@RequestParam int page,
-    											@RequestParam int pageSize) {
+    public UserHistoryDto getUserPreviousHistory(@RequestParam("device_id") String device_id,
+    											@RequestParam("page") int page,
+    											@RequestParam("pageSize") int pageSize) {
 
         if (device_id == null || device_id.isEmpty())
             throw new CustomException("Please provide valid device id to query.", HttpStatus.NOT_ACCEPTABLE);
